@@ -255,10 +255,10 @@ input{
 	padding: 2px 5px;
 	border:1px solid #c4c4c4;
 	@include inline-block;
-	@include global-inputtext(#fff,#333,#eee,#c1c1c1,4px,0 0 3px 0 #ccc);
+	@include global-inputtext(#fff,#333,#ccc,#c1c1c1,4px,0 0 3px 0 #ccc);
 
 	&.input-trans{
-		@include transition(all 0.3s ease);
+		@include transition(border,box-shadow 0.3s ease);
 	}
 
 	&.text-danger{

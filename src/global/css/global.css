@@ -1405,7 +1405,7 @@ input {
   *vertical-align: auto;
   *zoom: 1;
   *display: inline;
-  border: 1px solid #eee;
+  border: 1px solid #ccc;
 }
 /* line 7, ../scss/mixin/input/_text.scss */
 .dw-text.text-trans {
@@ -1429,10 +1429,10 @@ input {
 }
 /* line 260, ../scss/components/_input.scss */
 .dw-text.input-trans {
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -moz-transition: border, box-shadow 0.3s ease;
+  -o-transition: border, box-shadow 0.3s ease;
+  -webkit-transition: border, box-shadow 0.3s ease;
+  transition: border, box-shadow 0.3s ease;
 }
 /* line 264, ../scss/components/_input.scss */
 .dw-text.text-danger {
