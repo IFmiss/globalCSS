@@ -1,0 +1,44 @@
+@mixin global-inputlist($bgColor,$hoverColor,$inputType,$borderRadius,$trans...){
+	background:$bgColor;
+	color:#ffffff;
+	@include border-radius($borderRadius);
+
+	&.has-hover:hover{
+		background: $hoverColor;
+	}
+
+	&.has-active:active{
+		background: $hoverColor;
+	}
+
+	@if $inputType == btn-empty{
+		color: $bgColor;
+		background:#ffffff;
+		border:1px solid $bgColor;
+
+		&.has-hover:hover{
+			color:$hoverColor;
+			background:#ffffff;
+			border:1px solid $hoverColor;
+		}
+	}
+
+	@if $inputType == btn-reverse-toempty{
+		&.has-hover:hover{
+			color: $bgColor;
+			background:#ffffff;
+			border:1px solid $bgColor;
+		}
+	}
+
+	@if $inputType == btn-reverse-tofull{
+		color: $bgColor;
+		background:#ffffff;
+		border:1px solid $bgColor;
+
+		&.has-hover:hover{
+			background:$bgColor;
+			color:#ffffff;
+		}
+	}
+}

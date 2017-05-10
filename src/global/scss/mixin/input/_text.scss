@@ -1,0 +1,56 @@
+@mixin global-inputtext($bgColor,$fontColor,$borderColor,$focusBorderColor,$borderRadius,$boxShadow...){
+	background:$bgColor;
+	color:$fontColor;	
+	@include inline-block;
+	border:1px solid $borderColor;
+
+	&.text-trans{
+		@include transition(all 0.3s ease);
+	}
+
+	&.border-r{
+		@include border-radius($borderRadius);
+	}
+
+	&.has-focus{
+		&:focus{
+			@include box-shadow($boxShadow);
+			border:1px solid $focusBorderColor;
+		}
+	}
+
+	// &.has-active:active{
+	// 	background: $hoverColor;
+	// }
+
+	// @if $inputType == input-empty{
+	// 	color: $bgColor;
+	// 	background:#ffffff;
+	// 	border:1px solid $bgColor;
+
+	// 	&.has-hover:hover{
+	// 		color:$hoverColor;
+	// 		background:#ffffff;
+	// 		border:1px solid $hoverColor;
+	// 	}
+	// }
+
+	// @if $inputType == input-reverse-toempty{
+	// 	&.has-hover:hover{
+	// 		color: $bgColor;
+	// 		background:#ffffff;
+	// 		border:1px solid $bgColor;
+	// 	}
+	// }
+
+	// @if $inputType == input-reverse-tofull{
+	// 	color: $bgColor;
+	// 	background:#ffffff;
+	// 	border:1px solid $bgColor;
+
+	// 	&.has-hover:hover{
+	// 		background:$bgColor;
+	// 		color:#ffffff;
+	// 	}
+	// }
+}

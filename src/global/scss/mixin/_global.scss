@@ -1,0 +1,47 @@
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+@mixin margin($duration,$size) {
+	@if $duration == top{
+		margin-top: $size+px;
+	}
+
+	@if $duration == left{
+		margin-left: $size+px;
+	}
+
+	@if $duration == right{
+		margin-right: $size+px;
+	}
+
+	@if $duration == bottom{
+		margin-bottom: $size+px;
+	}
+}
+
+@mixin padding($duration,$size) {
+	@if $duration == top{
+		padding-top: $size+px;
+	}
+
+	@if $duration == left{
+		padding-left: $size+px;
+	}
+
+	@if $duration == right{
+		padding-right: $size+px;
+	}
+
+	@if $duration == bottom{
+		padding-bottom: $size+px;
+	}
+}

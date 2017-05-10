@@ -1,0 +1,190 @@
+@import '../components/_colorInfo.scss';
+
+.bg-color-success{
+	background:$dw-color-success;
+	text-align:center;
+	
+	&:before{
+		content:'success',
+	}
+
+	&:hover{
+		background:$dw-color-success-hover;
+
+		&:before{
+			content:'hover',
+		}
+	}
+}
+
+.bg-color-primary{
+	background:$dw-color-primary;
+	text-align:center;
+	
+	&:before{
+		content:'primary',
+	}
+
+	&:hover{
+		background:$dw-color-primary-hover;
+
+		&:before{
+			content:'hover',
+		}
+	}
+}
+
+.bg-color-danger{
+	background:$dw-color-danger;
+	text-align:center;
+	
+	&:before{
+		content:'danger',
+	}
+
+	&:hover{
+		background:$dw-color-danger-hover;
+
+		&:before{
+			content:'hover',
+		}
+	}
+}
+
+.bg-color-warning{
+	background:$dw-color-warning;
+	text-align:center;
+	
+	&:before{
+		content:'warning';
+	}
+
+	&:hover{
+		background:$dw-color-warning-hover;
+
+		&:before{
+			content:'hover';
+		}
+	}
+}
+
+.bg-color-skyblue{
+	background:$dw-color-skyblue;
+	text-align:center;
+	
+	&:before{
+		content:'skyblue',
+	}
+
+	&:hover{
+		background:$dw-color-skyblue-hover;
+
+		&:before{
+			content:'hover',
+		}
+	}
+}
+
+.bg-color-powderblue{
+	background:$dw-color-powderblue;
+	text-align:center;
+	
+	&:before{
+		content:'powderblue',
+	}
+
+	&:hover{
+		background:$dw-color-powderblue-hover;
+
+		&:before{
+			content:'hover',
+		}
+	}
+}
+
+.bg-color-springgreen{
+	background:$dw-color-springgreen;
+	text-align:center;
+	
+	&:before{
+		content:'springgreen',
+	}
+
+	&:hover{
+		background:$dw-color-springgreen-hover;
+
+		&:before{
+			content:'hover',
+		}
+	}
+}
+
+.bg-color-lightpurple{
+	background:$dw-color-lightpurple;
+	text-align:center;
+	
+	&:before{
+		content:'lightpurple';
+	}
+
+	&:hover{
+		background:$dw-color-lightpurple-hover;
+
+		&:before{
+			content:'hover';
+		}
+	}
+}
+
+.bg-color-deepred{
+	background:$dw-color-deepred;
+	text-align:center;
+	
+	&:before{
+		content:'deepred';
+	}
+
+	&:hover{
+		background:$dw-color-deepred-hover;
+
+		&:before{
+			content:'hover';
+		}
+	}
+}
+
+.bg-color-lightgrey{
+	background:$dw-color-lightgrey;
+	text-align:center;
+	
+	&:before{
+		content:'lightgrey';
+	}
+
+	&:hover{
+		background:$dw-color-lightgrey-hover;
+
+		&:before{
+			content:'hover';
+		}
+	}
+}
+
+.bg-color-default{
+	background:$dw-color-default;
+	text-align:center;
+	
+	&:before{
+		content:'default';
+		color: #aaa;
+	}
+
+	&:hover{
+		background:$dw-color-default-hover;
+
+		&:before{
+			content:'hover';
+			color: #fff;
+		}
+	}
+}

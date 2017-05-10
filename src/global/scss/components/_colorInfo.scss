@@ -1,0 +1,56 @@
+@import '../mixin/color/_color.scss';
+
+// 这里将是所有的颜色变量
+
+
+//颜色  
+.dw-color-success{@include global-color($dw-color-success,$dw-color-success-hover)}
+.dw-color-primary{@include global-color($dw-color-primary,$dw-color-primary-hover)}
+.dw-color-warning{@include global-color($dw-color-warning,$dw-color-warning-hover)}
+.dw-color-danger{@include global-color($dw-color-danger,$dw-color-danger-hover)}
+.dw-color-skyblue{@include global-color($dw-color-skyblue,$dw-color-skyblue-hover)}
+.dw-color-powderblue{@include global-color($dw-color-powderblue,$dw-color-powderblue-hover)}
+.dw-color-lightpurple{@include global-color($dw-color-lightpurple,$dw-color-lightpurple-hover)}
+.dw-color-lightgrey{@include global-color($dw-color-lightgrey,$dw-color-lightgrey-hover)}
+.dw-color-deepred{@include global-color($dw-color-deepred,$dw-color-deepred-hover)}
+.dw-color-disabled{@include global-color($dw-color-disabled,$dw-color-disabled)}
+
+//背景颜色
+.dw-bgcolor-success{@include global-bgColor($dw-color-success,$dw-color-success-hover)}
+.dw-bgcolor-primary{@include global-bgColor($dw-color-primary,$dw-color-primary-hover)}
+.dw-bgcolor-warning{@include global-bgColor($dw-color-warning,$dw-color-warning-hover)}
+.dw-bgcolor-danger{@include global-bgColor($dw-color-danger,$dw-color-danger-hover)}
+.dw-bgcolor-skyblue{@include global-bgColor($dw-color-skyblue,$dw-color-skyblue-hover)}
+.dw-bgcolor-powderblue{@include global-bgColor($dw-color-powderblue,$dw-color-powderblue-hover)}
+.dw-bgcolor-lightpurple{@include global-bgColor($dw-color-lightpurple,$dw-color-lightpurple-hover)}
+.dw-bgcolor-lightgrey{@include global-bgColor($dw-color-lightgrey,$dw-color-lightgrey-hover)}
+.dw-bgcolor-deepred{@include global-bgColor($dw-color-deepred,$dw-color-deepred-hover)}
+.dw-bgcolor-disabled{@include global-bgColor($dw-color-disabled,$dw-color-disabled)}
+
+
+//光标选中的背景色
+
+//默认颜色
+::selection{@include global-selectColorInfo(#fff,$dw-color-success)};
+::-moz-selectionselection{@include global-selectColorInfo(#fff,$dw-color-success)};
+
+.dw-selectColor-success::selection{@include global-selectColorInfo(#fff,$dw-color-success)};
+.dw-selectColor-danger::selection{@include global-selectColorInfo(#fff,$dw-color-danger)};
+.dw-selectColor-primary::selection{@include global-selectColorInfo(#fff,$dw-color-primary)};
+.dw-selectColor-powderblue::selection{@include global-selectColorInfo(#fff,$dw-color-powderblue)};
+.dw-selectColor-warning::selection{@include global-selectColorInfo(#fff,$dw-color-warning)};
+.dw-selectColor-success::-moz-selection{@include global-selectColorInfo(#fff,$dw-color-success)};
+.dw-selectColor-danger::-moz-selection{@include global-selectColorInfo(#fff,$dw-color-danger)};
+.dw-selectColor-primary::-moz-selection{@include global-selectColorInfo(#fff,$dw-color-primary)};
+.dw-selectColor-powderblue::-moz-selection{@include global-selectColorInfo(#fff,$dw-color-powderblue)};
+.dw-selectColor-warning::-moz-selection{@include global-selectColorInfo(#fff,$dw-color-warning)};
+
+
+//
+
+
+.console{
+	padding:20px 40px;
+	color:#fff;
+	@include background-image(linear-gradient(left,#66CCCC 0%, #339999 20%,#CCCC99 40%,#99CCFF 60%,#CCCCFF 80%,#FF99CC 100%));
+}

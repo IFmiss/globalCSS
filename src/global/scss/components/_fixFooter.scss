@@ -1,0 +1,42 @@
+//这是用于footer固定在文件底部的scss样式
+
+// 必须遵从一个原则    |	header				//头部
+// 					   |	.main_content		//body 所有内容 
+// 					   |	footer 				//尾部
+
+*{
+  @include box-sizing(border-box);
+  -webkit-overflow-scrolling: touch;
+}
+
+html{
+    min-height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    font-family:'微软雅黑';
+    position: relative;
+}
+
+header{
+   /* 我们希望 header 采用固定的高度，只占用必须的空间 */
+   /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+   flex: 0 0 auto;
+}
+
+.main_content{
+   /* 将 flex-grow 设置为1，该元素会占用所有的可使用空间
+      而其他元素该属性值为0，因此不会得到多余的空间*/
+   /* 1 flex-grow, 0 flex-shrink, auto flex-basis */
+   flex: 1 1 auto;
+   background: #edeff0;
+}
+
+footer{
+   /* 和 header 一样，footer 也采用固定高度*/
+   /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+   flex: 0 0 auto;
+}

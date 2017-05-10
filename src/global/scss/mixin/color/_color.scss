@@ -1,0 +1,24 @@
+// 文字颜色
+@mixin global-color($color,$colorHover...){
+	color:$color;
+
+	&.has-hover:hover{
+		color: $colorHover;
+	}
+}
+
+// 背景颜色
+@mixin global-bgColor($bgColor,$bgColorHover...){
+	background-color:$bgColor;
+	color:#fff;
+
+	&.has-hover:hover{
+		background-color: $bgColorHover;
+	}
+}
+
+// 光标颜色
+@mixin global-selectColorInfo($color,$bgColor...){
+	background:$bgColor;
+	color:$color;
+} 

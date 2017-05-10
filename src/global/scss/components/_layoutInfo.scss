@@ -1,0 +1,50 @@
+// 这里是主要一些布局上面的功能  通用布局
+// flex布局class命名
+// flex布局样式-水平居中-垂直居中-显示方向为col 纵向
+
+
+// 水平垂直居中
+.flex-center-center-col{
+	@include display-flex;
+	@include align-items(center);
+	@include justify-content(center);
+	@include flex-direction(column);
+}
+
+// 一像素边框 移动端
+.border-1px{
+	@include border-1px($dw-color-success); 
+}
+
+.border-1px.dw-border-primary{
+	@include border-1px($dw-color-primary); 
+}
+
+.border-1px.dw-border-disabled{
+	@include border-1px($dw-color-disabled); 
+}
+
+.border-1px.dw-border-danger{
+	@include border-1px($dw-color-danger); 
+}
+
+.border-1px.dw-border-powderblue{
+	@include border-1px($dw-color-powderblue); 
+}
+
+//margin
+// @for $i from 2 through 20 {
+//   @if $i % 2==0{
+//         .dw-marginTop-#{$i} { @include margin(top,$i) }
+//         .dw-marginLeft-#{$i} { @include margin(left,$i) }
+//         .dw-marginBottom-#{$i} { @include margin(bottom,$i) }
+//         .dw-marginRight-#{$i} { @include margin(right,$i) }  
+//     }
+// }
+
+//font-size
+@for $i from 8 through 32 {
+  @if $i % 2==0{
+  		.dw-fontsize-#{$i} { font-size: $i+px; }	
+  	}
+}

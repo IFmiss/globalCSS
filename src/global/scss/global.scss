@@ -1,0 +1,32 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@charset "utf-8";
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+@import "compass/typography/text/ellipsis";  	//超出提示省略号
+
+@import "components/_fonts.scss";				//颜色内容
+@import "components/_bianliang.scss";			//颜色内容
+@import "mixin/_allMixIn.scss";					//颜色内容
+
+@import "components/_fixFooter.scss";    		//底部一直都存在底部
+@import "components/_colorInfo.scss";			//颜色内容
+@import "components/_layoutInfo.scss";      	//通用的布局
+
+@import "components/_input.scss";				//按钮布局
+@import "components/_response.scss";			//响应式
+
+@import "testHtml/_testColor.scss";  			//页面的样式
+
+// div{
+// 	background:$dw-color-primary;
+// 	padding:20px; 
+// 	@include inline-block;
+
+// 	&:hover{
+// 		background: $dw-color-primary-hover;
+// 	}
+// }

@@ -1,0 +1,279 @@
+@import '../mixin/input/_botton.scss';
+
+input{
+	border:none;
+	outline:none;
+	font-size:14px;
+
+	&:focus{
+		// border:none;
+		// outline:none;
+	}
+}
+
+//这是按钮效果
+.dw-btn{
+	cursor: pointer;
+	border:none;
+	outline:none;
+	font-size:14px;
+	padding: 10px 32px;
+	@include inline-block;
+	@include border-radius(4px);
+	@include global-inputlist(#eee,#e1e1e1,input-success,4px);
+
+	&.btn-lg{
+		padding: 11px 36px;
+		font-size: 16px;
+	}
+
+	&.btn{ 
+		padding: 10px 32px;
+		font-size: 14px;
+	}
+
+	&.btn-sm{
+		padding: 6px 18px;
+		font-size: 12px;
+	}
+
+	&.btn-xs{
+		padding: 2px 6px;
+		font-size: 10px;
+	}
+
+	&.btn-success{
+		@include box-sizing(border-box);
+		@include global-inputlist($dw-color-success,$dw-color-success-hover,btn-success,4px);
+
+		&.btn-empty{
+			@include global-inputlist($dw-color-success,$dw-color-success-hover,btn-empty,4px);
+		} 
+
+		&.btn-reverse-toempty{
+			@include global-inputlist($dw-color-success,$dw-color-success-hover,btn-reverse-toempty,4px);
+		}
+
+		&.btn-reverse-tofull{
+			@include global-inputlist($dw-color-success,$dw-color-success-hover,btn-reverse-tofull,4px);
+		}
+
+		&.btn-trans{
+			@include transition(all 0.3s ease);
+		}
+	}
+
+	&.btn-primary{
+		@include box-sizing(border-box);
+		@include global-inputlist($dw-color-primary,$dw-color-primary-hover,btn-primary,4px);
+
+		&.btn-empty{
+			@include global-inputlist($dw-color-primary,$dw-color-primary-hover,btn-empty,4px);
+		} 
+
+		&.btn-reverse-toempty{
+			@include global-inputlist($dw-color-primary,$dw-color-primary-hover,btn-reverse-toempty,4px);
+		}
+
+		&.btn-reverse-tofull{
+			@include global-inputlist($dw-color-primary,$dw-color-primary-hover,btn-reverse-tofull,4px);
+		}
+
+		&.btn-trans{
+			@include transition(all 0.3s ease);
+		}
+	}
+
+	&.btn-warning{
+		@include box-sizing(border-box);
+		@include global-inputlist($dw-color-warning,$dw-color-warning-hover,btn-warning,4px);
+
+		&.btn-empty{
+			@include global-inputlist($dw-color-warning,$dw-color-warning-hover,btn-empty,4px);
+		} 
+
+		&.btn-reverse-toempty{
+			@include global-inputlist($dw-color-warning,$dw-color-warning-hover,btn-reverse-toempty,4px);
+		}
+
+		&.btn-reverse-tofull{
+			@include global-inputlist($dw-color-warning,$dw-color-warning-hover,btn-reverse-tofull,4px);
+		}
+
+		&.btn-trans{
+			@include transition(all 0.3s ease);
+		}
+	}
+
+	&.btn-danger{
+		@include box-sizing(border-box);
+		@include global-inputlist($dw-color-danger,$dw-color-danger-hover,btn-danger,4px);
+
+		&.btn-empty{
+			@include global-inputlist($dw-color-danger,$dw-color-danger-hover,btn-empty,4px);
+		} 
+
+		&.btn-reverse-toempty{
+			@include global-inputlist($dw-color-danger,$dw-color-danger-hover,btn-reverse-toempty,4px);
+		}
+
+		&.btn-reverse-tofull{
+			@include global-inputlist($dw-color-danger,$dw-color-danger-hover,btn-reverse-tofull,4px);
+		}
+
+		&.btn-trans{
+			@include transition(all 0.3s ease);
+		}
+	}
+
+	&.btn-default{
+		@include border-radius(4px);
+		color: #333;
+		border:1px solid #cccccc;
+		background: #ffffff;
+
+		&:hover{
+			background: $dw-color-default-hover;
+		}
+
+		&.no-hover{
+			background:#fff;
+		}
+
+		&.btn-empty{
+			color: #333;
+			background:$dw-color-default-hover;
+			border:1px solid #cccccc;
+
+			&:hover{
+				border:1px solid #aaa;
+			}
+
+			&.no-hover{
+				border:1px solid #ccc;
+			}
+		}
+
+		&.btn-reverse-toempty{
+			color: #333;
+			background:$dw-color-default-hover;
+			border:1px solid #aaa;
+			
+			&:hover{
+				border:1px solid #cccccc;
+				background: #ffffff;
+			}
+		}
+
+		&.btn-trans{
+			@include transition(all 0.3s ease);
+		}
+	}
+
+	&.btn-deepred{
+		@include box-sizing(border-box);
+		@include global-inputlist($dw-color-deepred,$dw-color-deepred-hover,btn-deepred,4px);
+
+		&.btn-empty{
+			@include global-inputlist($dw-color-deepred,$dw-color-deepred-hover,btn-empty,4px);
+		} 
+
+		&.btn-reverse-toempty{
+			@include global-inputlist($dw-color-deepred,$dw-color-deepred-hover,btn-reverse-toempty,4px);
+		}
+
+		&.btn-reverse-tofull{
+			@include global-inputlist($dw-color-deepred,$dw-color-deepred-hover,btn-reverse-tofull,4px);
+		}
+
+		&.btn-trans{
+			@include transition(all 0.3s ease);
+		}
+	}
+
+	&.btn-powderblue{
+		@include box-sizing(border-box);
+		@include global-inputlist($dw-color-powderblue,$dw-color-powderblue-hover,btn-powderblue,4px);
+
+		&.btn-empty{
+			@include global-inputlist($dw-color-powderblue,$dw-color-powderblue-hover,btn-empty,4px);
+		} 
+
+		&.btn-reverse-toempty{
+			@include global-inputlist($dw-color-powderblue,$dw-color-powderblue-hover,btn-reverse-toempty,4px);
+		}
+
+		&.btn-reverse-tofull{
+			@include global-inputlist($dw-color-powderblue,$dw-color-powderblue-hover,btn-reverse-tofull,4px);
+		}
+
+		&.btn-trans{
+			@include transition(all 0.3s ease);
+		}
+	}
+
+	&.btn-skyblue{
+		@include box-sizing(border-box);
+		@include global-inputlist($dw-color-skyblue,$dw-color-skyblue-hover,btn-skyblue,4px);
+
+		&.btn-empty{
+			@include global-inputlist($dw-color-skyblue,$dw-color-skyblue-hover,btn-empty,4px);
+		} 
+
+		&.btn-reverse-toempty{
+			@include global-inputlist($dw-color-skyblue,$dw-color-skyblue-hover,btn-reverse-toempty,4px);
+		}
+
+		&.btn-reverse-tofull{
+			@include global-inputlist($dw-color-skyblue,$dw-color-skyblue-hover,btn-reverse-tofull,4px);
+		}
+
+		&.btn-trans{
+			@include transition(all 0.3s ease);
+		}
+	}
+
+	&:disabled{
+		background:$dw-color-disabled!important;
+		color: #fff!important;
+		border:none!important;
+	}
+
+	&.disabled{
+		background:$dw-color-disabled!important;
+		color: #fff!important;
+		border:none!important;
+	}
+}
+
+//这是输入框效果
+.dw-text{
+	cursor: pointer;
+	outline:none;
+	height:32px;
+	font-size:14px;
+	padding: 2px 5px;
+	border:1px solid #c4c4c4;
+	@include inline-block;
+	@include global-inputtext(#fff,#333,#eee,#c1c1c1,4px,0 0 3px 0 #ccc);
+
+	&.input-trans{
+		@include transition(all 0.3s ease);
+	}
+
+	&.text-danger{
+		@include global-inputtext(#fff,#333,$dw-color-danger,#F89898,0,0 0 3px 0 #F89898);
+	}
+
+	&.text-warning{
+		@include global-inputtext(#fff,#333,$dw-color-warning,#F3D497,0,0 0 3px 0 #F3D497);
+	}
+
+	&.text-success{
+		@include global-inputtext(#fff,#333,$dw-color-success,#97E5AD,0,0 0 3px 0 #97E5AD);
+	}
+
+	&.text-primary{
+		@include global-inputtext(#fff,#333,$dw-color-primary,#ACE0F5 ,4px,0 0 3px 0 #ACE0F5);
+	}
+}
