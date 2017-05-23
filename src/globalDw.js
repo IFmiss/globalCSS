@@ -15,15 +15,32 @@
   // }
 
    //*********DOM**********
-  DW.getDomById = function(id){
+  DW.getDomById = function(id) {
     var eleId = id || '';
     return document.getElementById(eleId);
   };
 
-
+  DW.getDomByClass = function(classInfo) {
+    var classInfo = classInfo || '';
+    if(!typeof(document.getElementsByClassName) === 'function'){
+      var result=[];
+      var aEle=document.getElementsByTagName('*');
+      /*正则模式*/
+      var re=new RegExp("\\b" + classInfo + "\\b","g");
+      for(var i=0;i<aEle.length;i++){
+          /*字符串search方法判断是否存在匹配*/
+          if(aEle[i].className.search(re) != -1){
+              result.push(aEle[i]);
+          }
+      }
+      return result;
+    }else{
+      return document.getElementsByClassName(classInfo);
+    }
+  }
 
  //**********浏览器环境************
-  DW.isIE = function(callBack){
+  DW.isIE = function(callBack) {
     var isIE = false;
     if (!!window.ActiveXObject || "ActiveXObject" in window) {
        isIE = true;
@@ -37,6 +54,50 @@
     }else{
       return isIE;
     }
+  };
+
+  //动态引入CSS
+  DW.loadStyle = function(url) {
+      var hasSameStyle = false;
+      var links = $('link');
+      for(var i = 0;i<links.length;i++){
+          if(links.eq(i).attr('href') == url){
+              hasSameStyle = true;
+              return
+          }
+      }
+
+      if(!hasSameStyle){
+          var link = document.createElement("link");
+          link.type = "text/css";
+          link.rel = "stylesheet";
+          link.href = url;
+          document.getElementsByTagName("head")[0].appendChild(link);
+      }
+  }
+
+  //动态引入JS
+  DW.loadScript = function(src) {
+      var hasSameScript = false;
+      var scripts = $('script');
+      for(var i = 0;i<scripts.length;i++){
+          if(scripts.eq(i).attr('src') == src){
+              hasSameScript = true;
+              return
+          }
+      }
+
+      if(!hasSameScript){
+          var script = document.createElement("script");
+          script.type = "text/script";
+          script.src = src;
+          document.getElementsByTagName("html")[0].appendChild(script);
+      }
+  }
+
+  //是否支持ie9+
+  DW.isLowerIe9 = function(){
+      return (!window.FormData);
   };
 
   DW.getBrowserInfo = function() {
@@ -63,7 +124,6 @@
     　　if(Sys.safari) {
     　　　　return 'Safari: ' + Sys.safari;
     　　}
-        
         // var browser = getBrowserInfo() ;     //获取浏览器信息
         // var verinfo = (browser+"").replace(/[^0-9.]/ig, "");   //获取浏览器版本 
   };
@@ -145,10 +205,11 @@
     }
   }
 
+  //获取当前位置
   DW.getCurrentPosition = function(option){
     var positionOption = {
             enableHighAccuracy : true,
-            timeout : Infinity,
+            timeout : 8000,
             maximumAge : 0
         };
 
@@ -156,26 +217,43 @@
 
     if(navigator.geolocation) { 
 
-      function geoSuccess(){
-        alert(1);
+      var geoSuccess = function(event){
+        console.log(event.coords.latitude + ', ' + event.coords.longitude);
       }
 
-      function geoError(){
-        alert(2);
+      var geoError = function(error){
+         switch(error.code){
+            case 1:
+            alert("位置服务被拒绝");
+            break;
+
+            case 2:
+            alert("暂时获取不到位置信息");
+            break;
+
+            case 3:
+            alert("获取信息超时");
+            break;
+
+            case 4:
+            alert("未知错误");
+            break;
+         }
       }
 
        // 支持
       navigator.geolocation.getCurrentPosition(geoSuccess, geoError, optList);
     } else {
        // 不支持
+       DW.console('浏览器不支持定位');
     }
   }
 
-
-   //**********网页实用功能************
-  DW.backToTop = function(speed){
+  //**********网页实用功能************
+  DW.backToTop = function(speed,position){
     var dwSpeed = speed || 800;
-    $('body,html').animate({scrollTop:0},dwSpeed);
+    var position = position || 0;
+    $('body,html').animate({scrollTop:position},dwSpeed);
   };
 
   // 小于10的加个0
@@ -184,6 +262,39 @@
        number="0" + number
     }
     return number;
+  };
+
+  //从数组中获取num 个随机不重复的元素
+  DW.getRandomElementFromArr = function(arr,num){
+    var test_arr = new Array();
+    for(var index in arr){
+      test_arr.push(arr[index]);    //创建新的arr  为了不改变原来的arr值
+    };
+
+    var result_arr = new Array();
+    for(var i = 0;i < num; i++) {
+      if(test_arr.length>0){
+        var index = Math.floor(Math.random() * test_arr.length);
+        result_arr.push(test_arr[index]);
+        test_arr.splice(index,1);
+      }else{
+        return;
+      }
+    }
+    return result_arr;
+  }
+
+  //获取滚动条的宽度
+  DW.getScrollWidth = function(){
+    var noScroll,   //没有scroll时候的 clientWidth
+        scroll,     //有scroll时候的 clientWidth
+        oDiv = document.createElement('div');    //创建一个div  之后再删除
+    oDiv.style.cssText = 'position:absolute; top:-1000px; width:100px; height:100px; overflow:hidden;';
+    noScroll = document.body.appendChild(oDiv).clientWidth;
+    oDiv.style.overflowY = 'scroll';
+    scroll = oDiv.clientWidth;
+    document.body.removeChild(oDiv);
+    return noScroll-scroll; 
   };
 
   // 获取当前日期  y-m-d h:m:s
@@ -275,10 +386,10 @@
     var isOneLine = isOneLine || 'one';
     if(isOneLine === 'one'){
       console.log('%c'+text+' '+author+'', "background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY2Y2NjYyIvPjxzdG9wIG9mZnNldD0iMjAlIiBzdG9wLWNvbG9yPSIjMzM5OTk5Ii8+PHN0b3Agb2Zmc2V0PSI0MCUiIHN0b3AtY29sb3I9IiNjY2NjOTkiLz48c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iIzk5Y2NmZiIvPjxzdG9wIG9mZnNldD0iODAlIiBzdG9wLWNvbG9yPSIjY2NjY2ZmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmY5OWNjIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');background-size: 100%;background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #66cccc), color-stop(20%, #339999), color-stop(40%, #cccc99), color-stop(60%, #99ccff), color-stop(80%, #ccccff), color-stop(100%, #ff99cc));background-image: -moz-linear-gradient(left, #66cccc 0%, #339999 20%, #cccc99 40%, #99ccff 60%, #ccccff 80%, #ff99cc 100%);background-image: -webkit-linear-gradient(left, #66cccc 0%, #339999 20%, #cccc99 40%, #99ccff 60%, #ccccff 80%, #ff99cc 100%);background-image: linear-gradient(to right, #66cccc 0%, #339999 20%, #cccc99 40%, #99ccff 60%, #ccccff 80%, #ff99cc 100%);padding:20px 40px;color:#fff;font-size:12px;");
-      console.log(' ');
+      console.log('');
     }else if(isOneLine === 'more'){
       console.log('%c'+text+' '+author+'', "background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY2Y2NjYyIvPjxzdG9wIG9mZnNldD0iMjAlIiBzdG9wLWNvbG9yPSIjMzM5OTk5Ii8+PHN0b3Agb2Zmc2V0PSI0MCUiIHN0b3AtY29sb3I9IiNjY2NjOTkiLz48c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iIzk5Y2NmZiIvPjxzdG9wIG9mZnNldD0iODAlIiBzdG9wLWNvbG9yPSIjY2NjY2ZmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmY5OWNjIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');background-size: 100%;background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #66cccc), color-stop(20%, #339999), color-stop(40%, #cccc99), color-stop(60%, #99ccff), color-stop(80%, #ccccff), color-stop(100%, #ff99cc));background-image: -moz-linear-gradient(left, #66cccc 0%, #339999 20%, #cccc99 40%, #99ccff 60%, #ccccff 80%, #ff99cc 100%);background-image: -webkit-linear-gradient(left, #66cccc 0%, #339999 20%, #cccc99 40%, #99ccff 60%, #ccccff 80%, #ff99cc 100%);background-image: linear-gradient(to right, #66cccc 0%, #339999 20%, #cccc99 40%, #99ccff 60%, #ccccff 80%, #ff99cc 100%);padding:0;color:#fff;font-size:12px;");
-      console.log(' ');
+      console.log('');
     }
   }
 
@@ -318,8 +429,12 @@
    //************样式**************
 
   //返回随机色
-  DW.randomColor = function(){   
-     return '#'+(~~(Math.random()*(1<<24))).toString(16);
+  DW.randomColor = function(opacity){
+    var opacity = opacity || 1;
+    var r=Math.floor(Math.random()*256);
+    var g=Math.floor(Math.random()*256);
+    var b=Math.floor(Math.random()*256);
+    return "rgba("+r+','+g+','+b+','+opacity+")";
   };
 
   //outline 提现布局框架   by  Addy Osmani
@@ -342,6 +457,6 @@
     });
   }
 
-  window.$dw = DW;
+  window.$DW = DW;
 
 })(jQuery,window); 

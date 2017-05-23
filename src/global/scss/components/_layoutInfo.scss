@@ -1,3 +1,9 @@
+*{
+  @include box-sizing(border-box);
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+}
+
 // 这里是主要一些布局上面的功能  通用布局
 // flex布局class命名
 // flex布局样式-水平居中-垂直居中-显示方向为col 纵向

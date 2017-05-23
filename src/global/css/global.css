@@ -118,14 +118,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* line 12, ../scss/components/_fixFooter.scss */
+/* line 13, ../scss/components/_fixFooter.scss */
 html {
   min-height: 100%;
 }
 
-/* line 16, ../scss/components/_fixFooter.scss */
+/* line 17, ../scss/components/_fixFooter.scss */
 body {
   display: flex;
   flex-direction: column;
@@ -134,14 +135,14 @@ body {
   position: relative;
 }
 
-/* line 24, ../scss/components/_fixFooter.scss */
+/* line 25, ../scss/components/_fixFooter.scss */
 header {
   /* 我们希望 header 采用固定的高度，只占用必须的空间 */
   /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
   flex: 0 0 auto;
 }
 
-/* line 30, ../scss/components/_fixFooter.scss */
+/* line 31, ../scss/components/_fixFooter.scss */
 .main_content {
   /* 将 flex-grow 设置为1，该元素会占用所有的可使用空间
      而其他元素该属性值为0，因此不会得到多余的空间*/
@@ -150,7 +151,7 @@ header {
   background: #edeff0;
 }
 
-/* line 38, ../scss/components/_fixFooter.scss */
+/* line 39, ../scss/components/_fixFooter.scss */
 footer {
   /* 和 header 一样，footer 也采用固定高度*/
   /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
@@ -431,7 +432,16 @@ footer {
   background-image: linear-gradient(to right, #66cccc 0%, #339999 20%, #cccc99 40%, #99ccff 60%, #ccccff 80%, #ff99cc 100%);
 }
 
-/* line 7, ../scss/components/_layoutInfo.scss */
+/* line 1, ../scss/components/_layoutInfo.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 13, ../scss/components/_layoutInfo.scss */
 .flex-center-center-col {
   display: -webkit-flex;
   display: flex;
@@ -443,7 +453,7 @@ footer {
   flex-direction: column;
 }
 
-/* line 15, ../scss/components/_layoutInfo.scss */
+/* line 21, ../scss/components/_layoutInfo.scss */
 .border-1px {
   position: relative;
 }
@@ -459,7 +469,7 @@ footer {
   content: '';
 }
 
-/* line 19, ../scss/components/_layoutInfo.scss */
+/* line 25, ../scss/components/_layoutInfo.scss */
 .border-1px.dw-border-primary {
   position: relative;
 }
@@ -475,7 +485,7 @@ footer {
   content: '';
 }
 
-/* line 23, ../scss/components/_layoutInfo.scss */
+/* line 29, ../scss/components/_layoutInfo.scss */
 .border-1px.dw-border-disabled {
   position: relative;
 }
@@ -491,7 +501,7 @@ footer {
   content: '';
 }
 
-/* line 27, ../scss/components/_layoutInfo.scss */
+/* line 33, ../scss/components/_layoutInfo.scss */
 .border-1px.dw-border-danger {
   position: relative;
 }
@@ -507,7 +517,7 @@ footer {
   content: '';
 }
 
-/* line 31, ../scss/components/_layoutInfo.scss */
+/* line 37, ../scss/components/_layoutInfo.scss */
 .border-1px.dw-border-powderblue {
   position: relative;
 }
@@ -523,67 +533,67 @@ footer {
   content: '';
 }
 
-/* line 48, ../scss/components/_layoutInfo.scss */
+/* line 54, ../scss/components/_layoutInfo.scss */
 .dw-fontsize-8 {
   font-size: 8px;
 }
 
-/* line 48, ../scss/components/_layoutInfo.scss */
+/* line 54, ../scss/components/_layoutInfo.scss */
 .dw-fontsize-10 {
   font-size: 10px;
 }
 
-/* line 48, ../scss/components/_layoutInfo.scss */
+/* line 54, ../scss/components/_layoutInfo.scss */
 .dw-fontsize-12 {
   font-size: 12px;
 }
 
-/* line 48, ../scss/components/_layoutInfo.scss */
+/* line 54, ../scss/components/_layoutInfo.scss */
 .dw-fontsize-14 {
   font-size: 14px;
 }
 
-/* line 48, ../scss/components/_layoutInfo.scss */
+/* line 54, ../scss/components/_layoutInfo.scss */
 .dw-fontsize-16 {
   font-size: 16px;
 }
 
-/* line 48, ../scss/components/_layoutInfo.scss */
+/* line 54, ../scss/components/_layoutInfo.scss */
 .dw-fontsize-18 {
   font-size: 18px;
 }
 
-/* line 48, ../scss/components/_layoutInfo.scss */
+/* line 54, ../scss/components/_layoutInfo.scss */
 .dw-fontsize-20 {
   font-size: 20px;
 }
 
-/* line 48, ../scss/components/_layoutInfo.scss */
+/* line 54, ../scss/components/_layoutInfo.scss */
 .dw-fontsize-22 {
   font-size: 22px;
 }
 
-/* line 48, ../scss/components/_layoutInfo.scss */
+/* line 54, ../scss/components/_layoutInfo.scss */
 .dw-fontsize-24 {
   font-size: 24px;
 }
 
-/* line 48, ../scss/components/_layoutInfo.scss */
+/* line 54, ../scss/components/_layoutInfo.scss */
 .dw-fontsize-26 {
   font-size: 26px;
 }
 
-/* line 48, ../scss/components/_layoutInfo.scss */
+/* line 54, ../scss/components/_layoutInfo.scss */
 .dw-fontsize-28 {
   font-size: 28px;
 }
 
-/* line 48, ../scss/components/_layoutInfo.scss */
+/* line 54, ../scss/components/_layoutInfo.scss */
 .dw-fontsize-30 {
   font-size: 30px;
 }
 
-/* line 48, ../scss/components/_layoutInfo.scss */
+/* line 54, ../scss/components/_layoutInfo.scss */
 .dw-fontsize-32 {
   font-size: 32px;
 }
@@ -615,6 +625,7 @@ input {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
+  overflow-wrap: break-word;
 }
 /* line 6, ../scss/mixin/input/_botton.scss */
 .dw-btn.has-hover:hover {
@@ -624,27 +635,27 @@ input {
 .dw-btn.has-active:active {
   background: #e1e1e1;
 }
-/* line 25, ../scss/components/_input.scss */
+/* line 26, ../scss/components/_input.scss */
 .dw-btn.btn-lg {
   padding: 11px 36px;
   font-size: 16px;
 }
-/* line 30, ../scss/components/_input.scss */
+/* line 31, ../scss/components/_input.scss */
 .dw-btn.btn {
   padding: 10px 32px;
   font-size: 14px;
 }
-/* line 35, ../scss/components/_input.scss */
+/* line 36, ../scss/components/_input.scss */
 .dw-btn.btn-sm {
   padding: 6px 18px;
   font-size: 12px;
 }
-/* line 40, ../scss/components/_input.scss */
+/* line 41, ../scss/components/_input.scss */
 .dw-btn.btn-xs {
   padding: 2px 6px;
   font-size: 10px;
 }
-/* line 45, ../scss/components/_input.scss */
+/* line 46, ../scss/components/_input.scss */
 .dw-btn.btn-success {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -663,7 +674,7 @@ input {
 .dw-btn.btn-success.has-active:active {
   background: #28A47C;
 }
-/* line 49, ../scss/components/_input.scss */
+/* line 50, ../scss/components/_input.scss */
 .dw-btn.btn-success.btn-empty {
   background: #21B384;
   color: #ffffff;
@@ -688,7 +699,7 @@ input {
   background: #ffffff;
   border: 1px solid #28A47C;
 }
-/* line 53, ../scss/components/_input.scss */
+/* line 54, ../scss/components/_input.scss */
 .dw-btn.btn-success.btn-reverse-toempty {
   background: #21B384;
   color: #ffffff;
@@ -710,7 +721,7 @@ input {
   background: #ffffff;
   border: 1px solid #21B384;
 }
-/* line 57, ../scss/components/_input.scss */
+/* line 58, ../scss/components/_input.scss */
 .dw-btn.btn-success.btn-reverse-tofull {
   background: #21B384;
   color: #ffffff;
@@ -734,14 +745,14 @@ input {
   background: #21B384;
   color: #ffffff;
 }
-/* line 61, ../scss/components/_input.scss */
+/* line 62, ../scss/components/_input.scss */
 .dw-btn.btn-success.btn-trans {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 66, ../scss/components/_input.scss */
+/* line 67, ../scss/components/_input.scss */
 .dw-btn.btn-primary {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -760,7 +771,7 @@ input {
 .dw-btn.btn-primary.has-active:active {
   background: #4684C3;
 }
-/* line 70, ../scss/components/_input.scss */
+/* line 71, ../scss/components/_input.scss */
 .dw-btn.btn-primary.btn-empty {
   background: #4D96DF;
   color: #ffffff;
@@ -785,7 +796,7 @@ input {
   background: #ffffff;
   border: 1px solid #4684C3;
 }
-/* line 74, ../scss/components/_input.scss */
+/* line 75, ../scss/components/_input.scss */
 .dw-btn.btn-primary.btn-reverse-toempty {
   background: #4D96DF;
   color: #ffffff;
@@ -807,7 +818,7 @@ input {
   background: #ffffff;
   border: 1px solid #4D96DF;
 }
-/* line 78, ../scss/components/_input.scss */
+/* line 79, ../scss/components/_input.scss */
 .dw-btn.btn-primary.btn-reverse-tofull {
   background: #4D96DF;
   color: #ffffff;
@@ -831,14 +842,14 @@ input {
   background: #4D96DF;
   color: #ffffff;
 }
-/* line 82, ../scss/components/_input.scss */
+/* line 83, ../scss/components/_input.scss */
 .dw-btn.btn-primary.btn-trans {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 87, ../scss/components/_input.scss */
+/* line 88, ../scss/components/_input.scss */
 .dw-btn.btn-warning {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -857,7 +868,7 @@ input {
 .dw-btn.btn-warning.has-active:active {
   background: #F0AF6D;
 }
-/* line 91, ../scss/components/_input.scss */
+/* line 92, ../scss/components/_input.scss */
 .dw-btn.btn-warning.btn-empty {
   background: #FFBD7A;
   color: #ffffff;
@@ -882,7 +893,7 @@ input {
   background: #ffffff;
   border: 1px solid #F0AF6D;
 }
-/* line 95, ../scss/components/_input.scss */
+/* line 96, ../scss/components/_input.scss */
 .dw-btn.btn-warning.btn-reverse-toempty {
   background: #FFBD7A;
   color: #ffffff;
@@ -904,7 +915,7 @@ input {
   background: #ffffff;
   border: 1px solid #FFBD7A;
 }
-/* line 99, ../scss/components/_input.scss */
+/* line 100, ../scss/components/_input.scss */
 .dw-btn.btn-warning.btn-reverse-tofull {
   background: #FFBD7A;
   color: #ffffff;
@@ -928,14 +939,14 @@ input {
   background: #FFBD7A;
   color: #ffffff;
 }
-/* line 103, ../scss/components/_input.scss */
+/* line 104, ../scss/components/_input.scss */
 .dw-btn.btn-warning.btn-trans {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 108, ../scss/components/_input.scss */
+/* line 109, ../scss/components/_input.scss */
 .dw-btn.btn-danger {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -954,7 +965,7 @@ input {
 .dw-btn.btn-danger.has-active:active {
   background: #C74743;
 }
-/* line 112, ../scss/components/_input.scss */
+/* line 113, ../scss/components/_input.scss */
 .dw-btn.btn-danger.btn-empty {
   background: #D9534F;
   color: #ffffff;
@@ -979,7 +990,7 @@ input {
   background: #ffffff;
   border: 1px solid #C74743;
 }
-/* line 116, ../scss/components/_input.scss */
+/* line 117, ../scss/components/_input.scss */
 .dw-btn.btn-danger.btn-reverse-toempty {
   background: #D9534F;
   color: #ffffff;
@@ -1001,7 +1012,7 @@ input {
   background: #ffffff;
   border: 1px solid #D9534F;
 }
-/* line 120, ../scss/components/_input.scss */
+/* line 121, ../scss/components/_input.scss */
 .dw-btn.btn-danger.btn-reverse-tofull {
   background: #D9534F;
   color: #ffffff;
@@ -1025,14 +1036,14 @@ input {
   background: #D9534F;
   color: #ffffff;
 }
-/* line 124, ../scss/components/_input.scss */
+/* line 125, ../scss/components/_input.scss */
 .dw-btn.btn-danger.btn-trans {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 129, ../scss/components/_input.scss */
+/* line 130, ../scss/components/_input.scss */
 .dw-btn.btn-default {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -1041,47 +1052,47 @@ input {
   border: 1px solid #cccccc;
   background: #ffffff;
 }
-/* line 135, ../scss/components/_input.scss */
+/* line 136, ../scss/components/_input.scss */
 .dw-btn.btn-default:hover {
   background: #e6e6e6;
 }
-/* line 139, ../scss/components/_input.scss */
+/* line 140, ../scss/components/_input.scss */
 .dw-btn.btn-default.no-hover {
   background: #fff;
 }
-/* line 143, ../scss/components/_input.scss */
+/* line 144, ../scss/components/_input.scss */
 .dw-btn.btn-default.btn-empty {
   color: #333;
   background: #e6e6e6;
   border: 1px solid #cccccc;
 }
-/* line 148, ../scss/components/_input.scss */
+/* line 149, ../scss/components/_input.scss */
 .dw-btn.btn-default.btn-empty:hover {
   border: 1px solid #aaa;
 }
-/* line 152, ../scss/components/_input.scss */
+/* line 153, ../scss/components/_input.scss */
 .dw-btn.btn-default.btn-empty.no-hover {
   border: 1px solid #ccc;
 }
-/* line 157, ../scss/components/_input.scss */
+/* line 158, ../scss/components/_input.scss */
 .dw-btn.btn-default.btn-reverse-toempty {
   color: #333;
   background: #e6e6e6;
   border: 1px solid #aaa;
 }
-/* line 162, ../scss/components/_input.scss */
+/* line 163, ../scss/components/_input.scss */
 .dw-btn.btn-default.btn-reverse-toempty:hover {
   border: 1px solid #cccccc;
   background: #ffffff;
 }
-/* line 168, ../scss/components/_input.scss */
+/* line 169, ../scss/components/_input.scss */
 .dw-btn.btn-default.btn-trans {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 173, ../scss/components/_input.scss */
+/* line 174, ../scss/components/_input.scss */
 .dw-btn.btn-deepred {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -1100,7 +1111,7 @@ input {
 .dw-btn.btn-deepred.has-active:active {
   background: #923248;
 }
-/* line 177, ../scss/components/_input.scss */
+/* line 178, ../scss/components/_input.scss */
 .dw-btn.btn-deepred.btn-empty {
   background: #AA314D;
   color: #ffffff;
@@ -1125,7 +1136,7 @@ input {
   background: #ffffff;
   border: 1px solid #923248;
 }
-/* line 181, ../scss/components/_input.scss */
+/* line 182, ../scss/components/_input.scss */
 .dw-btn.btn-deepred.btn-reverse-toempty {
   background: #AA314D;
   color: #ffffff;
@@ -1147,7 +1158,7 @@ input {
   background: #ffffff;
   border: 1px solid #AA314D;
 }
-/* line 185, ../scss/components/_input.scss */
+/* line 186, ../scss/components/_input.scss */
 .dw-btn.btn-deepred.btn-reverse-tofull {
   background: #AA314D;
   color: #ffffff;
@@ -1171,14 +1182,14 @@ input {
   background: #AA314D;
   color: #ffffff;
 }
-/* line 189, ../scss/components/_input.scss */
+/* line 190, ../scss/components/_input.scss */
 .dw-btn.btn-deepred.btn-trans {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 194, ../scss/components/_input.scss */
+/* line 195, ../scss/components/_input.scss */
 .dw-btn.btn-powderblue {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -1197,7 +1208,7 @@ input {
 .dw-btn.btn-powderblue.has-active:active {
   background: #85BDBD;
 }
-/* line 198, ../scss/components/_input.scss */
+/* line 199, ../scss/components/_input.scss */
 .dw-btn.btn-powderblue.btn-empty {
   background: #99CCCC;
   color: #ffffff;
@@ -1222,7 +1233,7 @@ input {
   background: #ffffff;
   border: 1px solid #85BDBD;
 }
-/* line 202, ../scss/components/_input.scss */
+/* line 203, ../scss/components/_input.scss */
 .dw-btn.btn-powderblue.btn-reverse-toempty {
   background: #99CCCC;
   color: #ffffff;
@@ -1244,7 +1255,7 @@ input {
   background: #ffffff;
   border: 1px solid #99CCCC;
 }
-/* line 206, ../scss/components/_input.scss */
+/* line 207, ../scss/components/_input.scss */
 .dw-btn.btn-powderblue.btn-reverse-tofull {
   background: #99CCCC;
   color: #ffffff;
@@ -1268,14 +1279,14 @@ input {
   background: #99CCCC;
   color: #ffffff;
 }
-/* line 210, ../scss/components/_input.scss */
+/* line 211, ../scss/components/_input.scss */
 .dw-btn.btn-powderblue.btn-trans {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 215, ../scss/components/_input.scss */
+/* line 216, ../scss/components/_input.scss */
 .dw-btn.btn-skyblue {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -1294,7 +1305,7 @@ input {
 .dw-btn.btn-skyblue.has-active:active {
   background: #8EB5DB;
 }
-/* line 219, ../scss/components/_input.scss */
+/* line 220, ../scss/components/_input.scss */
 .dw-btn.btn-skyblue.btn-empty {
   background: #99CCFF;
   color: #ffffff;
@@ -1319,7 +1330,7 @@ input {
   background: #ffffff;
   border: 1px solid #8EB5DB;
 }
-/* line 223, ../scss/components/_input.scss */
+/* line 224, ../scss/components/_input.scss */
 .dw-btn.btn-skyblue.btn-reverse-toempty {
   background: #99CCFF;
   color: #ffffff;
@@ -1341,7 +1352,7 @@ input {
   background: #ffffff;
   border: 1px solid #99CCFF;
 }
-/* line 227, ../scss/components/_input.scss */
+/* line 228, ../scss/components/_input.scss */
 .dw-btn.btn-skyblue.btn-reverse-tofull {
   background: #99CCFF;
   color: #ffffff;
@@ -1365,27 +1376,27 @@ input {
   background: #99CCFF;
   color: #ffffff;
 }
-/* line 231, ../scss/components/_input.scss */
+/* line 232, ../scss/components/_input.scss */
 .dw-btn.btn-skyblue.btn-trans {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 236, ../scss/components/_input.scss */
+/* line 237, ../scss/components/_input.scss */
 .dw-btn:disabled {
   background: #aaaaaa !important;
   color: #fff !important;
   border: none !important;
 }
-/* line 242, ../scss/components/_input.scss */
+/* line 243, ../scss/components/_input.scss */
 .dw-btn.disabled {
   background: #aaaaaa !important;
   color: #fff !important;
   border: none !important;
 }
 
-/* line 250, ../scss/components/_input.scss */
+/* line 251, ../scss/components/_input.scss */
 .dw-text {
   cursor: pointer;
   outline: none;
@@ -1427,14 +1438,14 @@ input {
   box-shadow: 0 0 3px 0 #ccc;
   border: 1px solid #c1c1c1;
 }
-/* line 260, ../scss/components/_input.scss */
+/* line 261, ../scss/components/_input.scss */
 .dw-text.input-trans {
   -moz-transition: border, box-shadow 0.3s ease;
   -o-transition: border, box-shadow 0.3s ease;
   -webkit-transition: border, box-shadow 0.3s ease;
   transition: border, box-shadow 0.3s ease;
 }
-/* line 264, ../scss/components/_input.scss */
+/* line 265, ../scss/components/_input.scss */
 .dw-text.text-danger {
   background: #fff;
   color: #333;
@@ -1465,7 +1476,7 @@ input {
   box-shadow: 0 0 3px 0 #F89898;
   border: 1px solid #F89898;
 }
-/* line 268, ../scss/components/_input.scss */
+/* line 269, ../scss/components/_input.scss */
 .dw-text.text-warning {
   background: #fff;
   color: #333;
@@ -1496,7 +1507,7 @@ input {
   box-shadow: 0 0 3px 0 #F3D497;
   border: 1px solid #F3D497;
 }
-/* line 272, ../scss/components/_input.scss */
+/* line 273, ../scss/components/_input.scss */
 .dw-text.text-success {
   background: #fff;
   color: #333;
@@ -1527,7 +1538,7 @@ input {
   box-shadow: 0 0 3px 0 #97E5AD;
   border: 1px solid #97E5AD;
 }
-/* line 276, ../scss/components/_input.scss */
+/* line 277, ../scss/components/_input.scss */
 .dw-text.text-primary {
   background: #fff;
   color: #333;
