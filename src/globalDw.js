@@ -350,7 +350,7 @@
   //localStorage 存储
   DW.setStorage = function(key,value){
     var dwKey = key || 'test-dw';
-    var dwValue = value || 'this is test setStorage';
+    var dwValue = value;
     if (window.localStorage) {
       localStorage.setItem(dwKey,dwValue);
     } else {
