@@ -356,7 +356,7 @@
     } else {
       return false;
     }
-  }
+  };
 
   DW.getStorage = function(key){
     var dwKey = key || 'test-dw';
@@ -365,7 +365,7 @@
     } else {
       return false;
     }
-  }
+  };
 
   DW.clearStorage = function(key){
     if (window.localStorage) {
@@ -378,7 +378,7 @@
     }else {
       return false;
     }
-  }
+  };
 
   DW.console = function(text,isOneLine,author){
     var text = text || 'this is console!';
@@ -391,10 +391,35 @@
       console.log('%c'+text+' '+author+'', "background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY2Y2NjYyIvPjxzdG9wIG9mZnNldD0iMjAlIiBzdG9wLWNvbG9yPSIjMzM5OTk5Ii8+PHN0b3Agb2Zmc2V0PSI0MCUiIHN0b3AtY29sb3I9IiNjY2NjOTkiLz48c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iIzk5Y2NmZiIvPjxzdG9wIG9mZnNldD0iODAlIiBzdG9wLWNvbG9yPSIjY2NjY2ZmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmY5OWNjIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');background-size: 100%;background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #66cccc), color-stop(20%, #339999), color-stop(40%, #cccc99), color-stop(60%, #99ccff), color-stop(80%, #ccccff), color-stop(100%, #ff99cc));background-image: -moz-linear-gradient(left, #66cccc 0%, #339999 20%, #cccc99 40%, #99ccff 60%, #ccccff 80%, #ff99cc 100%);background-image: -webkit-linear-gradient(left, #66cccc 0%, #339999 20%, #cccc99 40%, #99ccff 60%, #ccccff 80%, #ff99cc 100%);background-image: linear-gradient(to right, #66cccc 0%, #339999 20%, #cccc99 40%, #99ccff 60%, #ccccff 80%, #ff99cc 100%);padding:0;color:#fff;font-size:12px;");
       console.log('');
     }
+  };
+
+  //是否为正确的Email格式
+  DW.testEmail = function(str){
+    var reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    if(reg.test(str)){
+      return true;
+    }else{
+      return false;
+    }
+  };
+
+  //是不是合法密码（长度6-20个字符，包括大写字母、小写字母、数字、下划线至少两种）
+  DW.testPassword = function(str){
+    if(!str) return false;
+    if(typeof str==="string") str+="";
+    if(/^\w{6,20}$/.test(str)){
+      var num=0;
+      if(/[A-Z]/.test(str)) num++;
+      if(/[a-z]/.test(str)) num++;
+      if(/[0-9]/.test(str)) num++;
+      if(/_/.test(str)) num++;
+      if(num>=2) return true;
+    }
+    return false;
   }
 
   //网页性能测试
-  DW.testConsole = function(){
+  DW.testWebpage = function(){
     var t = performance.timing;
     var pageLoadTime = t.loadEventStart - t.navigationStart;
     var dnsTime = t.domainLookupEnd - t.domainLookupStart;
@@ -415,7 +440,7 @@
     }
   };
 
-  //返回字符中的所有数字
+  //返回字符中的所有字符串  除数字以外
   DW.getStrWithOutNumber = function(str){
     if(typeof(str) === 'string'){
       var myStr = str || '';
@@ -424,7 +449,6 @@
       console.error('参数不是字符串!');
     }
   };
-
 
    //************样式**************
 
@@ -441,21 +465,6 @@
   DW.showLayoutFramework = function(){
      [].forEach.call( document.querySelectorAll("*"),function(a){  a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16) }); 
   };
-
-  //点击触发背景色
-  DW.changeBgColor = function(ele, beforeColor, afterColor) {
-    var beforeTouchColor = beforeColor || '#fff';
-    var afterTouchColor = afterColor || '#eee';
-    ele.on('touchstart mousedown', function (e) {
-        var $this = $(this);
-        e.stopPropagation();
-        $this.css({background: afterTouchColor,'-webkit-transition':'background 0.3s ease','-moz-transition':'background 0.3s ease',transition:'background 0.3s ease'});
-    }).on('touchend mouseup', function (e) {
-        var $this = $(this);
-        e.stopPropagation();
-        $this.css({background: beforeTouchColor,'-webkit-transition':'background 0.3s ease','-moz-transition':'background 0.3s ease',transition:'background 0.3s ease'});
-    });
-  }
 
   window.$DW = DW;
 

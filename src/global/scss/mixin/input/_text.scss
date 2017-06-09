@@ -1,15 +1,11 @@
-@mixin global-inputtext($bgColor,$fontColor,$borderColor,$focusBorderColor,$borderRadius,$boxShadow...){
+@mixin global-inputtext($bgColor,$fontColor,$borderColor,$focusBorderColor,$boxShadow...){
 	background:$bgColor;
 	color:$fontColor;	
 	@include inline-block;
 	border:1px solid $borderColor;
 
 	&.text-trans{
-		@include transition(all 0.3s ease);
-	}
-
-	&.border-r{
-		@include border-radius($borderRadius);
+		@include transition(box-shadow 0.3s ease);
 	}
 
 	&.has-focus{

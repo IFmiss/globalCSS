@@ -240,11 +240,11 @@ input{
 		border:none!important;
 	}
 
-	&.disabled{
-		background:$dw-color-disabled!important;
-		color: #fff!important;
-		border:none!important;
-	}
+	// &.disabled{
+	// 	background:$dw-color-disabled!important;
+	// 	color: #fff!important;
+	// 	border:none!important;
+	// }
 }
 
 //这是输入框效果
@@ -256,25 +256,42 @@ input{
 	padding: 2px 5px;
 	border:1px solid #c4c4c4;
 	@include inline-block;
-	@include global-inputtext(#fff,#333,#ccc,#c1c1c1,4px,0 0 3px 0 #ccc);
+	@include global-inputtext(#fff,#333,#aaa,#c1c1c1,4px,0 0 3px 0 #aaa);
+
+	&.text-radius{
+		@include border-radius(4px);
+	}
 
 	&.input-trans{
 		@include transition(border,box-shadow 0.3s ease);
 	}
 
 	&.text-danger{
-		@include global-inputtext(#fff,#333,$dw-color-danger,#F89898,0,0 0 3px 0 #F89898);
+		@include global-inputtext(#fff,#666,#aaa,$dw-color-danger,0 0 0 0 $dw-color-danger);
+
+		&.in-danger{
+			@include global-inputtext(#fff,#666,$dw-color-danger,$dw-color-danger,0 0 3px 0 $dw-color-danger);
+		}
 	}
 
 	&.text-warning{
-		@include global-inputtext(#fff,#333,$dw-color-warning,#F3D497,0,0 0 3px 0 #F3D497);
+		@include global-inputtext(#fff,#666,#aaa,$dw-color-warning,0 0 0 0 $dw-color-warning);
+		&.in-warning{
+			@include global-inputtext(#fff,#666,$dw-color-warning,$dw-color-warning,0 0 3px 0 $dw-color-warning);
+		}
 	}
 
 	&.text-success{
-		@include global-inputtext(#fff,#333,$dw-color-success,#97E5AD,0,0 0 3px 0 #97E5AD);
+		@include global-inputtext(#fff,#666,#aaa,$dw-color-success,0 0 0 0 $dw-color-success);
+		&.in-success{
+			@include global-inputtext(#fff,#666,$dw-color-success,$dw-color-success,0 0 3px 0 $dw-color-success);
+		}
 	}
 
 	&.text-primary{
-		@include global-inputtext(#fff,#333,$dw-color-primary,#ACE0F5 ,4px,0 0 3px 0 #ACE0F5);
+		@include global-inputtext(#fff,#666,#aaa,$dw-color-primary,0 0 0 0 $dw-color-primary);
+		&.in-primary{
+			@include global-inputtext(#fff,#666,$dw-color-primary,$dw-color-primary,0 0 3px 0 $dw-color-primary);
+		}
 	}
 }

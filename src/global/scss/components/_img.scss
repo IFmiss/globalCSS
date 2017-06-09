@@ -1,0 +1,15 @@
+img{
+	&.dw-img-response{
+		display:block;
+		max-width: 100%;
+	 	height: auto;
+	}
+
+	&.dw-img-rounded{
+		border-radius: 6px;
+	}
+
+	&.dw-img-circle {
+	  border-radius: 50%;
+	}
+}

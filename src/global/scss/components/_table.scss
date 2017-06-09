@@ -1,0 +1,102 @@
+table{
+	width: 100%;
+    max-width: 100%;
+	background-color: transparent;
+	border-spacing: 0;
+    border-collapse: collapse;
+
+	thead{
+		tr{
+			td,th{
+				border-bottom: 2px solid #ddd;
+				border-top: 0;
+				padding: 8px;
+				line-height: 1.42857143;
+			    vertical-align: top;
+			}
+		}
+	}
+
+	tbody{
+		tr{
+			td,th{
+				padding: 8px;
+				line-height: 1.42857143;
+			    vertical-align: top;
+			    border-top: 0;
+			    border-bottom: 1px solid #ddd;
+			}
+		}
+	}
+
+	tfoot{
+		tr{
+			td,th{
+				padding: 8px;
+				line-height: 1.42857143;
+			    vertical-align: top;
+			    border-top: 0;
+			    border-bottom: 1px solid #ddd;
+			}
+		}
+	}
+
+	tbody tr td,tbody tr th,
+	tfoot tr td,tfoot tr th,
+	tbody tr,tfoot tr,thead tr{
+		&.active{
+			background:rgba(153,204,255,0.1);
+		}
+
+		&.success{
+			background:rgba(33,179,132,0.1);
+		}
+
+		&.warning{
+			background:rgba(255,189,122,0.1);
+		}
+
+		&.danger{
+			background:rgba(217,83,79,0.1);
+		}
+
+		&.primary{
+			background:rgba(77,150,223,0.1);
+		}
+	}
+
+	&.dw-boot-table-response{
+		overflow-x: scroll;
+	}
+
+	&.dw-boot-table-condensed{
+		thead tr td,thead tr th,
+		tbody tr td,tbody tr th,
+		tfoot tr td,tfoot tr th{
+			padding:4px;
+		}
+	}
+
+	&.dw-boot-table-bordered{
+		border:1px solid #ddd;
+	}
+
+	&.dw-boot-table-diffcolor{
+		thead tr:nth-child(2n+1),tbody tr:nth-child(2n+1),tfoot tr:nth-child(2n+1){
+			background-color:#fff;
+		}
+
+		thead tr:nth-child(2n),tbody tr:nth-child(2n),tfoot tr:nth-child(2n){
+			background-color:#f5f5f5;
+		}
+	}
+
+	&.dw-boot-table-hover{
+		tbody tr,tfoot tr{
+			&:hover{
+				cursor: pointer;
+				background-color:#f5f5f5;
+			}
+		}
+	}
+}
