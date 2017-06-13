@@ -450,6 +450,32 @@
     }
   };
 
+  //使用Blob获取图片或视频并二进制显示
+  DW.blobSrc = function(id,src) {
+    var id = id || '';
+    var src = src || '';
+    window.URL = window.URL || window.webkitURL;
+    if (typeof history.pushState == "function") {
+        var xhr;
+        if(window.XMLHttpRequest){
+            xhr = new XMLHttpRequest()
+        }else if(window.ActiveXObject){
+            xhr = ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhr.open("get", src, true);
+        xhr.responseType = "blob";
+        xhr.onload = function() {
+            if (this.status == 200) {
+                var blob = this.response;
+                document.getElementById(id).src=window.URL.createObjectURL(blob);
+            }
+        }
+        xhr.send();
+    } else {
+        document.getElementById(id).src = src;
+    }
+  }
+
    //************样式**************
 
   //返回随机色
